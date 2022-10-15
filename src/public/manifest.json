@@ -1,32 +1,46 @@
 {
-    "theme_color": "#059b8e",
-    "background_color": "#F7F3F7",
-    "display": "standalone",
-    "scope": "/",
-    "start_url": "/",
-    "name": "Rhymes",
-    "short_name": "Rhymes",
-    "description": "Rhymes is a free online tool to find rhyming words",
-    "icons": [
-        {
-            "src": "/icon-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/icon-256x256.png",
-            "sizes": "256x256",
-            "type": "image/png"
-        },
-        {
-            "src": "/icon-384x384.png",
-            "sizes": "384x384",
-            "type": "image/png"
-        },
-        {
-            "src": "/icon-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
+  "theme_color": "#059b8e",
+  "background_color": "#F7F3F7",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Rhymes",
+  "short_name": "Rhymes",
+  "description": "Rhymes is a free online tool to find rhyming words",
+  "icons": [
+    {
+      "src": "manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    }
+  ]
 }
