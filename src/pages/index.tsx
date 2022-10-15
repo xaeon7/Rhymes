@@ -41,7 +41,6 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
 
     setEnabled(true);
     setQuery(q);
-    setLimit(17);
 
     router.replace({
       query: { ...router.query, word: q },
@@ -55,6 +54,10 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
       updateQuery(initialQuery);
     }
   }, []);
+
+  useEffect(() => {
+    setLimit(17);
+  }, [query]);
 
   return (
     <div>

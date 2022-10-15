@@ -20,6 +20,17 @@
   cursor: pointer;
 }
 
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
 .header {
   width: 100%;
   color: var(--clr-dark);
