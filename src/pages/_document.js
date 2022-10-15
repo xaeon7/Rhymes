@@ -13,7 +13,7 @@ export default function Document() {
         <meta name="apple-mobile-web-app-title" content="Rhymes" />
 
         <link rel="manifest" href="/manifest.json" />
-        <link rel="mask-icon" href="/favicon.svg" color="#5bbad5" />
+        <link rel="mask-icon" href="/favicon.svg" color="#fff" />
         <link rel="shortcut icon" href="/favicon.svg" />
       </Head>
       <body>

@@ -41,6 +41,7 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
 
     setEnabled(true);
     setQuery(q);
+    setLimit(17);
 
     router.replace({
       query: { ...router.query, word: q },
