@@ -10,10 +10,10 @@ import Searchbox from "../components/lib/Searchbox/Searchbox";
 import Container from "../layouts/Container";
 
 import { useQuery } from "react-query";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { GetRhymesAPI } from "../api";
 
-import image from "../public/Logo.jpg";
+import image from "../public/Logo512.jpg";
 import errorImage from "../assets/illustrations/errorImage";
 import searchIllustration from "../assets/illustrations/searchIllustration";
 
