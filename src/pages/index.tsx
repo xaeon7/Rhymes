@@ -124,16 +124,12 @@ Home.getInitialProps = async ({ query, res }) => {
     const { word } = query;
 
     if (!word || word instanceof Array) {
-      return res
-        ? res.writeHead(307, { Location: "/" }).end()
-        : Router.replace("/");
+      return { initialQuery: undefined };
     }
 
     return { initialQuery: word };
   } catch (error) {
-    return res
-      ? res.writeHead(307, { Location: "/" }).end()
-      : Router.replace("/");
+    return { initialQuery: undefined };
   }
 };
 
