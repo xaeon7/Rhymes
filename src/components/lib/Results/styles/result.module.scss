@@ -13,6 +13,7 @@
   &:hover {
     scale: 1.05;
     filter: drop-shadow(0px 0px 30px rgba(5, 155, 142, 0.05));
+
     transition: all 0.3s ease;
   }
 
@@ -51,11 +52,31 @@
   font-weight: 700;
 }
 
+.mid {
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: var(--clr-mid);
+  background-color: var(--clr-bg-mid);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
 .warning {
   padding: 6px 12px;
   border-radius: 6px;
   color: var(--clr-warning);
   background-color: var(--clr-bg-warning);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.poor {
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: var(--clr-poor);
+  background-color: var(--clr-bg-poor);
 
   font-size: 0.8rem;
   font-weight: 700;

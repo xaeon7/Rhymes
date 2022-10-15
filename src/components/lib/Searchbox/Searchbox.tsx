@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import arrow_rightIcon from "../../../assets/icons/arrow_right.icon";
 import searchIcon from "../../../assets/icons/search.icon";
 
 interface Props {
   updateQuery: (q: string) => void;
   isLoading: boolean;
+  initialQuery: string;
 }
 
-const Searchbox = ({ updateQuery, isLoading }: Props) => {
-  const [query, setQuery] = useState<string>("");
+const Searchbox = ({ updateQuery, isLoading, initialQuery }: Props) => {
+  const [query, setQuery] = useState<string>(initialQuery);
 
   return (
     <form className={`input__group`} onSubmit={(e) => e.preventDefault()}>

@@ -5,10 +5,12 @@ interface Props {
 }
 
 const Score = ({ score }: Props) => {
-  if (score >= 200) return <div className={styles.success}>Excellent</div>;
-  if (score >= 100) return <div className={styles.warning}>Average</div>;
-
-  return <div className={styles.danger}>Poor</div>;
+  if (score / 300 >= 0.8)
+    return <div className={styles.success}>Excellent</div>;
+  if (score / 300 >= 0.6) return <div className={styles.mid}>Good</div>;
+  if (score / 300 >= 0.4) return <div className={styles.warning}>Average</div>;
+  if (score / 300 >= 0.2) return <div className={styles.poor}>Poor</div>;
+  return <div className={styles.danger}>Terrible</div>;
 };
 
 export default Score;

@@ -26,3 +26,51 @@
 
   cursor: pointer;
 }
+
+.illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  width: 100%;
+  gap: 24px;
+
+  svg {
+    width: 80% !important;
+    height: unset !important;
+    max-height: 250px !important;
+  }
+}
+
+#search-icon {
+  animation: resultAnimation 4s ease infinite;
+}
+
+@keyframes resultAnimation {
+  0% {
+    scale: 1;
+    transform: translate(0%, 0%);
+  }
+  20% {
+    scale: 1.5;
+    transform: translate(-50%, 50%);
+  }
+  40% {
+    scale: 1;
+    transform: translate(-80%, 0%);
+  }
+  60% {
+    scale: 1.5;
+    transform: translate(-30%, 25%);
+  }
+  80% {
+    scale: 1;
+    transform: translate(-10%, 0%);
+  }
+  100% {
+    scale: 1;
+    transform: translate(0%, 0%);
+  }
+}
