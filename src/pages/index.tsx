@@ -62,7 +62,9 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
   return (
     <div>
       <Head>
-        <title>Rhymes</title>
+        <title>
+          {initialQuery.length ? `Word: ${initialQuery} - Rhymes` : "Rhymes"}
+        </title>
         <meta
           name="description"
           content="Rhymes is a free online tool to find rhyming words."
@@ -72,15 +74,36 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
           content="alliteration, rhythm, pace, behavior, ritual, rime, poem, point, ola, paraphrase, rite, verse, rim, wordplay, mused, assonant, rhymezone, book"
         />
 
-        <meta property="og:title" content={"Rhymes"} />
+        <meta
+          property="og:title"
+          content={
+            initialQuery.length ? `Word: ${initialQuery} - Rhymes` : "Rhymes"
+          }
+        />
         <meta property="og:image" content={image.src} />
-        <meta property="og:description" content={"Rhyme it"} />
+        <meta
+          property="og:description"
+          content={"Rhymes is a free online tool to find rhyming words."}
+        />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content={"Rhymes"} />
+        <meta
+          property="og:site_name"
+          content={
+            initialQuery.length ? `Word: ${initialQuery} - Rhymes` : "Rhymes"
+          }
+        />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={"Rhymes"} />
-        <meta name="twitter:description" content={"Rhyme it"} />
+        <meta
+          name="twitter:title"
+          content={
+            initialQuery.length ? `Word: ${initialQuery} - Rhymes` : "Rhymes"
+          }
+        />
+        <meta
+          name="twitter:description"
+          content={"Rhymes is a free online tool to find rhyming words."}
+        />
         <meta name="twitter:image" content={image.src} />
 
         <link rel="icon" href="/favicon.svg" />
