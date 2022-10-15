@@ -124,12 +124,12 @@ Home.getInitialProps = async ({ query, res }) => {
     const { word } = query;
 
     if (!word || word instanceof Array) {
-      return { initialQuery: undefined };
+      return { initialQuery: "" };
     }
 
     return { initialQuery: word };
   } catch (error) {
-    return { initialQuery: undefined };
+    return { initialQuery: "" };
   }
 };
 
