@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oleo+Script&display=swap");
+
+//? Variables
+@import "./var/colors";
+@import "./var/typography";
+
+//? Reset
+@import "./reset";
+
+//? Layouts
+@import "./lib/layouts/main";
+
+//? Components
+@import "./lib/inputs/index";
+
+.link {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+
+  text-decoration-line: underline;
+
+  color: #059b8e;
+
+  cursor: pointer;
+}
