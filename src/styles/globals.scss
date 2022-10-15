@@ -22,9 +22,22 @@
 
   text-decoration-line: underline;
 
-  color: #059b8e;
+  color: var(--clr-accent);
 
   cursor: pointer;
+}
+
+.footer {
+  font-family: "Lato";
+  font-style: normal;
+  font-size: 14px;
+  line-height: 24px;
+
+  color: var(--clr-dark);
+
+  a {
+    color: var(--clr-dark);
+  }
 }
 
 .illustration {

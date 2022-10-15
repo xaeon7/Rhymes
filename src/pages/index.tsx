@@ -63,7 +63,7 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
     <div>
       <Head>
         <title>
-          {initialQuery.length ? `Word: ${initialQuery} - Rhymes` : "Rhymes"}
+          {initialQuery.length ? `${initialQuery} - Rhymes` : "Rhymes"}
         </title>
         <meta
           name="description"
@@ -76,9 +76,7 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
 
         <meta
           property="og:title"
-          content={
-            initialQuery.length ? `Word: ${initialQuery} - Rhymes` : "Rhymes"
-          }
+          content={initialQuery.length ? `${initialQuery} - Rhymes` : "Rhymes"}
         />
         <meta property="og:image" content={image.src} />
         <meta
@@ -86,25 +84,19 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
           content={"Rhymes is a free online tool to find rhyming words."}
         />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:site_name"
-          content={
-            initialQuery.length ? `Word: ${initialQuery} - Rhymes` : "Rhymes"
-          }
-        />
+        <meta property="og:site_name" content={"Rhymes"} />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content={
-            initialQuery.length ? `Word: ${initialQuery} - Rhymes` : "Rhymes"
-          }
+          content={initialQuery.length ? `${initialQuery} - Rhymes` : "Rhymes"}
         />
         <meta
           name="twitter:description"
           content={"Rhymes is a free online tool to find rhyming words."}
         />
         <meta name="twitter:image" content={image.src} />
+        <meta name="twitter:site" content={"Rhymes"} />
 
         <link rel="icon" href="/favicon.svg" />
       </Head>
@@ -123,7 +115,7 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
 
         {error ? (
           <div className="illustration">
-            <p>An error has occurred </p>
+            <p>An error has occurred</p>
             {errorImage}
           </div>
         ) : (
@@ -138,7 +130,7 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
           </div>
         )}
 
-        <div style={{ opacity: 0.5 }}>
+        <div style={{ opacity: 0.5 }} className="footer">
           Powered by <a href="https://rhymebrain.com/">Rhyme Brain</a>
         </div>
       </Container>
