@@ -302,10 +302,10 @@
   outline: 2px solid var(--clr-accent);
   cursor: pointer;
 
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 
   &:hover {
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
     background-color: var(--clr-accent);
     color: var(--clr-white);
   }
@@ -316,7 +316,7 @@
   font-size: 0.9rem;
   background-color: var(--clr-accent);
   color: var(--clr-white);
-  border: 2px solid var(--clr-accent);
+  outline: 2px solid var(--clr-accent);
   pointer-events: none;
 
   transition: all 0.3s ease;
