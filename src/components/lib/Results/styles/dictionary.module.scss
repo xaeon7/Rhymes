@@ -302,9 +302,10 @@
   outline: 2px solid var(--clr-accent);
   cursor: pointer;
 
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
 
   &:hover {
+    transition: background 0.3s ease;
     background-color: var(--clr-accent);
     color: var(--clr-white);
   }
