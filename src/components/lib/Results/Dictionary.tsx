@@ -211,47 +211,51 @@ const Dictionary = ({ query, updateSelectedWord, selectedWord }: Props) => {
                 </div>
               )}
 
-            <div className={styles.grid}>
-              {data[0].meanings[meaningIndex].synonyms &&
-                data[0].meanings[meaningIndex].synonyms.length > 1 && (
-                  <div className={styles.section}>
-                    <h3>
-                      Synonyms{" "}
-                      <span>
-                        {data[0].meanings[meaningIndex].synonyms.length}
-                      </span>
-                    </h3>
+            {data[0].meanings &&
+              data[0].meanings.length > 0 &&
+              data[0].meanings[meaningIndex] && (
+                <div className={styles.grid}>
+                  {data[0].meanings[meaningIndex].synonyms &&
+                    data[0].meanings[meaningIndex].synonyms.length > 1 && (
+                      <div className={styles.section}>
+                        <h3>
+                          Synonyms{" "}
+                          <span>
+                            {data[0].meanings[meaningIndex].synonyms.length}
+                          </span>
+                        </h3>
 
-                    {data[0].meanings[meaningIndex].synonyms.map(
-                      (synonym, idx) => (
-                        <p className="keyword" key={idx}>
-                          {synonym}
-                        </p>
-                      )
+                        {data[0].meanings[meaningIndex].synonyms.map(
+                          (synonym, idx) => (
+                            <p className="keyword" key={idx}>
+                              {synonym}
+                            </p>
+                          )
+                        )}
+                      </div>
                     )}
-                  </div>
-                )}
 
-              {data[0].meanings[meaningIndex].antonyms &&
-                data[0].meanings[meaningIndex].antonyms.length > 0 && (
-                  <div className={styles.section}>
-                    <h3>
-                      Antonyms{" "}
-                      <span>
-                        {data[0].meanings[meaningIndex].antonyms.length}
-                      </span>
-                    </h3>
+                  {data[0].meanings[meaningIndex].antonyms &&
+                    data[0].meanings[meaningIndex].antonyms.length > 0 && (
+                      <div className={styles.section}>
+                        <h3>
+                          Antonyms{" "}
+                          <span>
+                            {data[0].meanings[meaningIndex].antonyms.length}
+                          </span>
+                        </h3>
 
-                    {data[0].meanings[meaningIndex].antonyms.map(
-                      (antonym, idx) => (
-                        <p className="keyword" key={idx}>
-                          {antonym}
-                        </p>
-                      )
+                        {data[0].meanings[meaningIndex].antonyms.map(
+                          (antonym, idx) => (
+                            <p className="keyword" key={idx}>
+                              {antonym}
+                            </p>
+                          )
+                        )}
+                      </div>
                     )}
-                  </div>
-                )}
-            </div>
+                </div>
+              )}
           </div>
         )}
       </div>
