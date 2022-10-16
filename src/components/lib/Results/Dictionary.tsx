@@ -91,12 +91,11 @@ const Dictionary = ({ query, updateSelectedWord }: Props) => {
                         className={styles.sound}
                         onClick={() => updateUrl(phonetic.audio)}
                       >
-                        {phonetic.text}
+                        {phonetic.text || `/${data[0].word}/`}
                       </span>
 
                       {data[0].phonetics.length > 1 &&
                         data[0].phonetics.length !== idx + 1 &&
-                        phonetic.text &&
                         ","}
                     </span>
                   ))}
@@ -146,20 +145,42 @@ const Dictionary = ({ query, updateSelectedWord }: Props) => {
                         <p>
                           <b>{idx + 1}.</b>{" "}
                           {parse(
-                            definition.definition.replace(
-                              data[0].word,
-                              `<span className="keyword">${data[0].word}</span>`
-                            )
+                            definition.definition
+                              .replace(
+                                data[0].word,
+                                `<span className="keyword">${data[0].word}</span>`
+                              )
+                              .replace(
+                                data[0].word.replace(
+                                  data[0].word[0],
+                                  data[0].word[0].toUpperCase()
+                                ),
+                                `<span className="keyword">${data[0].word.replace(
+                                  data[0].word[0],
+                                  data[0].word[0].toUpperCase()
+                                )}</span>`
+                              )
                           )}
                         </p>
                         {definition.example && (
                           <p className={styles.example}>
                             {`"`}
                             {parse(
-                              definition.example.replace(
-                                data[0].word,
-                                `<span className="keyword">${data[0].word}</span>`
-                              )
+                              definition.example
+                                .replace(
+                                  data[0].word,
+                                  `<span className="keyword">${data[0].word}</span>`
+                                )
+                                .replace(
+                                  data[0].word.replace(
+                                    data[0].word[0],
+                                    data[0].word[0].toUpperCase()
+                                  ),
+                                  `<span className="keyword">${data[0].word.replace(
+                                    data[0].word[0],
+                                    data[0].word[0].toUpperCase()
+                                  )}</span>`
+                                )
                             )}
                             {`"`}
                           </p>
