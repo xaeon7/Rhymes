@@ -19,8 +19,14 @@ export default function Document() {
           sizes="196x196"
           href="favicon-196.png"
         />
-        <link rel="apple-touch-icon" href="apple-icon-180.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="196x196"
+          href="favicon-196.png"
+        />
+        <link rel="apple-touch-icon" href="apple-icon-180.png" />
         <link
           rel="apple-touch-startup-image"
           href="apple-splash-2048-2732.jpg"

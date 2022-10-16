@@ -10,14 +10,14 @@
   --fs-200: 0.875rem;
 
   ////? font-families
-  --ff-script: "Oleo Script", "Segoe Script", "Edwardian Script", cursive;
+  --ff-script: "Playfair Display", serif;
   --ff-sans: "Lato", sans-serif;
 }
 
 .logo {
   font-family: var(--ff-script);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   font-size: var(--fs-900);
   line-height: 166px;
   color: var(--clr-accent);

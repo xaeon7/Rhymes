@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oleo+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;500;700&display=swap");
 
 //? Variables
 @import "./var/colors";
@@ -12,6 +12,10 @@
 
 //? Components
 @import "./lib/inputs/index";
+
+.keyword {
+  color: var(--clr-accent) !important;
+}
 
 .link {
   font-family: "Lato";

@@ -9,13 +9,14 @@ import Searchbox from "../components/lib/Searchbox/Searchbox";
 
 import Container from "../layouts/Container";
 
-import { useQuery } from "react-query";
 import { useRouter } from "next/router";
-import { GetRhymesAPI } from "../api";
 
 import image from "../public/Logo512.jpg";
 import errorImage from "../assets/illustrations/errorImage";
 import searchIllustration from "../assets/illustrations/searchIllustration";
+import { useRhymes } from "hooks/useRhymes";
+import { useDictionary } from "hooks/useDictionary";
+import Dictionary from "components/lib/Results/Dictionary";
 
 interface Props {
   initialQuery: string;
@@ -25,16 +26,19 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
   const router = useRouter();
 
   const [query, setQuery] = useState<string>(initialQuery);
+  const [selectedWord, setSelectedWord] = useState<string>("");
   const [limit, setLimit] = useState<number>(17);
   const [enabled, setEnabled] = useState<boolean>(false);
+  const [enabledSelected, setEnabledSelected] = useState<boolean>(false);
 
-  const { isLoading, error, data, refetch } = useQuery(
-    ["query-rhymes", query],
-    () => GetRhymesAPI({ query }),
-    {
-      enabled,
-    }
-  );
+  const { isLoading, error, data, refetch } = useRhymes(query, enabled);
+
+  const {
+    isLoading: wordLoading,
+    error: wordError,
+    data: wordData,
+    refetch: refetchSelectedWord,
+  } = useDictionary(selectedWord, enabledSelected);
 
   function updateQuery(q: string) {
     if (!q) return;
@@ -49,10 +53,21 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
     refetch();
   }
 
+  function updateSelectedWord(q: string) {
+    setSelectedWord(q);
+
+    if (!q) return;
+    setEnabledSelected(true);
+
+    refetchSelectedWord();
+  }
+
   useEffect(() => {
     if (initialQuery.length) {
       updateQuery(initialQuery);
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -100,45 +115,58 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
 
         <link rel="icon" href="/favicon.svg" />
       </Head>
-      <Container>
-        <Logo />
 
-        <Searchbox {...{ updateQuery, isLoading, initialQuery }} />
+      <div className="higherContainer">
+        <Container>
+          <Logo />
 
-        {!error && data && <div>{data?.length} search results</div>}
+          <Searchbox {...{ updateQuery, isLoading, initialQuery }} />
 
-        {isLoading ? (
-          <div className="illustration">{searchIllustration}</div>
-        ) : (
-          <></>
-        )}
+          {!error && data && <div>{data?.length} search results</div>}
 
-        {error ? (
-          <div className="illustration">
-            <p>An error has occurred</p>
-            {errorImage}
+          {isLoading ? (
+            <div className="illustration">{searchIllustration}</div>
+          ) : (
+            <></>
+          )}
+
+          {error ? (
+            <div className="illustration">
+              <p>An error has occurred</p>
+              {errorImage}
+            </div>
+          ) : (
+            <></>
+          )}
+
+          {!error && (
+            <Results {...{ data, limit, selectedWord, updateSelectedWord }} />
+          )}
+
+          {(data?.length ?? 0) > limit && !error && (
+            <div className="link" onClick={() => setLimit(data?.length ?? 0)}>
+              Show more results ...
+            </div>
+          )}
+
+          <div style={{ opacity: 0.5 }} className="footer">
+            Powered by <a href="https://rhymebrain.com/">Rhyme Brain</a> &{" "}
+            <a href="https://dictionaryapi.dev/">Dictionary API</a>
           </div>
-        ) : (
-          <></>
+        </Container>
+
+        {selectedWord.length > 0 && (
+          <Dictionary
+            query={selectedWord}
+            updateSelectedWord={updateSelectedWord}
+          />
         )}
-
-        {!error && <Results {...{ data, limit }} />}
-
-        {(data?.length ?? 0) > limit && !error && (
-          <div className="link" onClick={() => setLimit(data?.length ?? 0)}>
-            Show more results ...
-          </div>
-        )}
-
-        <div style={{ opacity: 0.5 }} className="footer">
-          Powered by <a href="https://rhymebrain.com/">Rhyme Brain</a>
-        </div>
-      </Container>
+      </div>
     </div>
   );
 };
 
-Home.getInitialProps = async ({ query, res }) => {
+Home.getInitialProps = async ({ query }) => {
   try {
     const { word } = query;
 

@@ -1,6 +1,6 @@
 .container {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
   max-width: 1440px;
   margin-inline: auto;
@@ -15,4 +15,12 @@
   gap: 40px;
 
   transition: all 0.5s ease;
+}
+
+.higherContainer {
+  width: 100vw;
+  display: flex;
+  align-items: flex-start;
+
+  position: relative;
 }

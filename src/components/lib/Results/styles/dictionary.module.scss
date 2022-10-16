@@ -1,0 +1,347 @@
+.container,
+.hideContainer {
+  width: 400px;
+  min-width: 400px;
+
+  height: 100vh;
+
+  position: fixed;
+
+  inset: 0;
+  left: auto;
+
+  background-color: var(--clr-white);
+  border-left: 2px solid var(--clr-light);
+  animation: show 0.3s ease forwards;
+
+  @media screen and (max-width: 800px) {
+    animation: showMobile 0.5s ease forwards;
+
+    width: 100vw;
+  }
+}
+
+.hideContainer {
+  animation: hide 0.5s ease forwards;
+
+  @media screen and (max-width: 800px) {
+    animation: hideMobile 0.5s ease forwards;
+  }
+}
+
+.placeholderContainer {
+  min-width: 400px;
+  height: 100vh;
+  animation: show 0.3s ease forwards;
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+}
+
+.hideContainerPlaceholder {
+  animation: hidePlaceholder 0.5s ease forwards;
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+}
+
+@keyframes hide {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+    min-width: 0px;
+    max-width: 400px;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+    min-width: 0px;
+    max-width: 0px;
+  }
+}
+
+@keyframes show {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+    min-width: 0px;
+    max-width: 0px;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+    min-width: 400px;
+    max-width: 400px;
+  }
+}
+
+@keyframes hideMobile {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes showMobile {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes hidePlaceholder {
+  from {
+    min-width: 0px;
+    max-width: 400px;
+  }
+  to {
+    min-width: 0px;
+    max-width: 0px;
+  }
+}
+
+@keyframes showPlaceholder {
+  from {
+    min-width: 0px;
+    max-width: 0px;
+  }
+  to {
+    min-width: 400px;
+    max-width: 400px;
+  }
+}
+
+.loadingContainer {
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+}
+
+.loader {
+  height: 40px;
+  width: 40px;
+  border: 3px solid var(--clr-accent);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.close {
+  color: var(--clr-gray);
+
+  position: fixed;
+  top: 2vw;
+  right: 2vw;
+
+  z-index: 100;
+
+  cursor: pointer;
+
+  &:hover {
+    color: var(--clr-accent);
+    transition: all 0.2s ease;
+  }
+
+  transition: all 0.2s ease;
+
+  animation: fadeUp 1s ease forwards;
+
+  @media screen and (max-width: 800px) {
+    top: 48px;
+    right: 48px;
+  }
+}
+
+.hideClose {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dictionaryContainer {
+  width: 100%;
+  height: 100%;
+
+  padding: 2vw;
+
+  @media screen and (max-width: 800px) {
+    padding: 48px;
+  }
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+
+  animation: fadeUp 0.5s ease forwards;
+
+  section {
+    display: flex;
+    flex-direction: column;
+
+    gap: 100px;
+  }
+
+  svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: unset;
+    max-height: 300px;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    text-transform: capitalize;
+    font-weight: 700;
+
+    span {
+      color: var(--clr-gray);
+    }
+  }
+}
+
+.header {
+  font-family: var(--ff-script);
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.phonetics {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  svg {
+    width: 1.3rem;
+    height: 1.3rem;
+
+    display: grid;
+    place-items: center;
+
+    transition: all 0.3s ease;
+    path {
+      fill: var(--clr-gray);
+    }
+  }
+}
+
+.playing {
+  svg {
+    path {
+      fill: var(--clr-gray);
+    }
+  }
+}
+
+.notPlaying {
+  svg {
+    path {
+      fill: var(--clr-gray);
+    }
+  }
+}
+
+.phonetic {
+  color: var(--clr-accent) !important;
+}
+
+.sound {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration-line: underline;
+  }
+}
+
+.meanings {
+  display: flex;
+  align-items: center;
+}
+
+.meaning {
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  background-color: var(--clr-white);
+  color: var(--clr-accent);
+  border: 2px solid var(--clr-accent);
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-white);
+  }
+}
+
+.activeMeaning {
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  background-color: var(--clr-accent);
+  color: var(--clr-white);
+  border: 2px solid var(--clr-accent);
+  pointer-events: none;
+
+  transition: all 0.3s ease;
+}
+
+.definitions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.definition {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.example {
+  color: var(--clr-gray);
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+  gap: 16px;
+}

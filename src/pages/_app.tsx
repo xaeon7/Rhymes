@@ -10,6 +10,7 @@ const queryClient = new QueryClient({
       refetchOnMount: false,
       retry: false,
       staleTime: 5 * 60 * 1000,
+      cacheTime: 1000 * 60 * 60 * 24,
     },
   },
 });
