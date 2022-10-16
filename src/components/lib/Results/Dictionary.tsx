@@ -7,6 +7,7 @@ import styles from "./styles/dictionary.module.scss";
 import parse from "html-react-parser";
 import notFound from "assets/icons/notFound";
 import { useLang } from "hooks/useLang";
+import { useRouter } from "next/router";
 
 interface Props {
   query: string;
@@ -33,9 +34,12 @@ const Dictionary = ({ query, updateSelectedWord, selectedWord }: Props) => {
     setMeaningIndex(0);
   }, [query]);
 
+  const router = useRouter();
+  const { locale } = router;
+
   const translate = useLang();
 
-  if (error)
+  if (error || locale !== "en")
     return (
       <>
         <div
