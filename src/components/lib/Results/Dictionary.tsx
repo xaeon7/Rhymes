@@ -101,7 +101,7 @@ const Dictionary = ({ query, updateSelectedWord, selectedWord }: Props) => {
           <div className={styles.dictionaryContainer}>
             <div className={styles.section}>
               <h1 className={styles.header}>{data[0].word}</h1>
-              {data[0].phonetics.length > 0 && (
+              {data[0].phonetics && data[0].phonetics.length > 0 && (
                 <div className={styles.phonetics}>
                   {data[0].phonetics.map((phonetic, idx) => (
                     <span key={idx} className={styles.phonetic}>
@@ -148,43 +148,23 @@ const Dictionary = ({ query, updateSelectedWord, selectedWord }: Props) => {
               </div>
             </div>
 
-            {data[0].meanings[meaningIndex]?.definitions.length > 0 && (
-              <div className={styles.section}>
-                <h3>
-                  Definitions{" "}
-                  <span>
-                    {data[0].meanings[meaningIndex].definitions.length}
-                  </span>
-                </h3>
-                <div className={styles.definitions}>
-                  {data[0].meanings[meaningIndex].definitions.map(
-                    (definition, idx) => (
-                      <div key={idx} className={styles.definition}>
-                        <p>
-                          <b>{idx + 1}.</b>{" "}
-                          {parse(
-                            definition.definition
-                              .replace(
-                                data[0].word,
-                                `<span className="keyword">${data[0].word}</span>`
-                              )
-                              .replace(
-                                data[0].word.replace(
-                                  data[0].word[0],
-                                  data[0].word[0].toUpperCase()
-                                ),
-                                `<span className="keyword">${data[0].word.replace(
-                                  data[0].word[0],
-                                  data[0].word[0].toUpperCase()
-                                )}</span>`
-                              )
-                          )}
-                        </p>
-                        {definition.example && (
-                          <p className={styles.example}>
-                            {`"`}
+            {data[0].meanings[meaningIndex]?.definitions &&
+              data[0].meanings[meaningIndex]?.definitions.length > 0 && (
+                <div className={styles.section}>
+                  <h3>
+                    Definitions{" "}
+                    <span>
+                      {data[0].meanings[meaningIndex].definitions.length}
+                    </span>
+                  </h3>
+                  <div className={styles.definitions}>
+                    {data[0].meanings[meaningIndex].definitions.map(
+                      (definition, idx) => (
+                        <div key={idx} className={styles.definition}>
+                          <p>
+                            <b>{idx + 1}.</b>{" "}
                             {parse(
-                              definition.example
+                              definition.definition
                                 .replace(
                                   data[0].word,
                                   `<span className="keyword">${data[0].word}</span>`
@@ -200,54 +180,77 @@ const Dictionary = ({ query, updateSelectedWord, selectedWord }: Props) => {
                                   )}</span>`
                                 )
                             )}
-                            {`"`}
                           </p>
-                        )}
-                      </div>
-                    )
-                  )}
+                          {definition.example && (
+                            <p className={styles.example}>
+                              {`"`}
+                              {parse(
+                                definition.example
+                                  .replace(
+                                    data[0].word,
+                                    `<span className="keyword">${data[0].word}</span>`
+                                  )
+                                  .replace(
+                                    data[0].word.replace(
+                                      data[0].word[0],
+                                      data[0].word[0].toUpperCase()
+                                    ),
+                                    `<span className="keyword">${data[0].word.replace(
+                                      data[0].word[0],
+                                      data[0].word[0].toUpperCase()
+                                    )}</span>`
+                                  )
+                              )}
+                              {`"`}
+                            </p>
+                          )}
+                        </div>
+                      )
+                    )}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
             <div className={styles.grid}>
-              {data[0].meanings[meaningIndex].synonyms.length > 1 && (
-                <div className={styles.section}>
-                  <h3>
-                    Synonyms{" "}
-                    <span>
-                      {data[0].meanings[meaningIndex].synonyms.length}
-                    </span>
-                  </h3>
+              {data[0].meanings[meaningIndex].synonyms &&
+                data[0].meanings[meaningIndex].synonyms.length > 1 && (
+                  <div className={styles.section}>
+                    <h3>
+                      Synonyms{" "}
+                      <span>
+                        {data[0].meanings[meaningIndex].synonyms.length}
+                      </span>
+                    </h3>
 
-                  {data[0].meanings[meaningIndex].synonyms.map(
-                    (synonym, idx) => (
-                      <p className="keyword" key={idx}>
-                        {synonym}
-                      </p>
-                    )
-                  )}
-                </div>
-              )}
+                    {data[0].meanings[meaningIndex].synonyms.map(
+                      (synonym, idx) => (
+                        <p className="keyword" key={idx}>
+                          {synonym}
+                        </p>
+                      )
+                    )}
+                  </div>
+                )}
 
-              {data[0].meanings[meaningIndex].antonyms.length > 0 && (
-                <div className={styles.section}>
-                  <h3>
-                    Antonyms{" "}
-                    <span>
-                      {data[0].meanings[meaningIndex].antonyms.length}
-                    </span>
-                  </h3>
+              {data[0].meanings[meaningIndex].antonyms &&
+                data[0].meanings[meaningIndex].antonyms.length > 0 && (
+                  <div className={styles.section}>
+                    <h3>
+                      Antonyms{" "}
+                      <span>
+                        {data[0].meanings[meaningIndex].antonyms.length}
+                      </span>
+                    </h3>
 
-                  {data[0].meanings[meaningIndex].antonyms.map(
-                    (antonym, idx) => (
-                      <p className="keyword" key={idx}>
-                        {antonym}
-                      </p>
-                    )
-                  )}
-                </div>
-              )}
+                    {data[0].meanings[meaningIndex].antonyms.map(
+                      (antonym, idx) => (
+                        <p className="keyword" key={idx}>
+                          {antonym}
+                        </p>
+                      )
+                    )}
+                  </div>
+                )}
             </div>
           </div>
         )}

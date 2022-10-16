@@ -6,6 +6,27 @@
 *::after {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
+
+  scrollbar-color: var(--clr-accent) var(--clr-lighter);
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--clr-lighter);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--clr-accent);
+  border-radius: 8px;
+  border: 0px none var(--clr-lighter);
+
+  &:hover {
+    background-color: var(--clr-accent-dark);
+  }
 }
 
 //? Reset margins

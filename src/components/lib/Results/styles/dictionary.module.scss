@@ -195,6 +195,23 @@
 
   animation: fadeUp 0.5s ease forwards;
 
+  scrollbar-color: var(--clr-accent) var(--clr-white);
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 30px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--clr-white);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--clr-accent);
+    border-radius: 30px;
+    border: 11px solid var(--clr-white);
+  }
+
   section {
     display: flex;
     flex-direction: column;
@@ -248,6 +265,9 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  row-gap: 0;
+
+  flex-wrap: wrap;
 
   svg {
     width: 1.3rem;
@@ -347,7 +367,7 @@
 .grid {
   display: grid;
 
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 
   gap: 16px;
 }
