@@ -6,6 +6,7 @@ import styles from "./styles/dictionary.module.scss";
 
 import parse from "html-react-parser";
 import notFound from "assets/icons/notFound";
+import { useLang } from "hooks/useLang";
 
 interface Props {
   query: string;
@@ -31,6 +32,8 @@ const Dictionary = ({ query, updateSelectedWord, selectedWord }: Props) => {
     setToggleDisplay(true);
     setMeaningIndex(0);
   }, [query]);
+
+  const translate = useLang();
 
   if (error)
     return (
@@ -60,7 +63,7 @@ const Dictionary = ({ query, updateSelectedWord, selectedWord }: Props) => {
           </div>
 
           <section className={styles.dictionaryContainer}>
-            Word not found in our dictionary. {notFound}
+            {translate.dictionaryError} {notFound}
           </section>
         </div>
       </>

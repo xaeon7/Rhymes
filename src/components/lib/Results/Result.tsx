@@ -1,3 +1,4 @@
+import { useLang } from "hooks/useLang";
 import { RhymeType } from "../../../api/types";
 import Score from "./Score";
 import styles from "./styles/result.module.scss";
@@ -9,6 +10,8 @@ interface Props {
 }
 
 const Result = ({ data, updateSelectedWord, selectedWord }: Props) => {
+  const translate = useLang();
+
   return (
     <div
       className={`${
@@ -23,7 +26,9 @@ const Result = ({ data, updateSelectedWord, selectedWord }: Props) => {
 
       <p className={styles.syllable}>
         {data.syllables}{" "}
-        {parseInt(data.syllables) > 1 ? "Syllables" : "Syllable"}
+        {parseInt(data.syllables) > 1
+          ? translate.syllables
+          : translate.syllable}
       </p>
     </div>
   );

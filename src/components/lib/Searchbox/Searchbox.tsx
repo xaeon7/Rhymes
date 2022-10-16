@@ -1,8 +1,8 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import arrow_rightIcon from "../../../assets/icons/arrow_right.icon";
 import searchIcon from "../../../assets/icons/search.icon";
 
+import { useLang } from "hooks/useLang";
 interface Props {
   updateQuery: (q: string) => void;
   isLoading: boolean;
@@ -12,6 +12,8 @@ interface Props {
 const Searchbox = ({ updateQuery, isLoading, initialQuery }: Props) => {
   const [query, setQuery] = useState<string>(initialQuery);
 
+  const translate = useLang();
+
   return (
     <form className={`input__group`} onSubmit={(e) => e.preventDefault()}>
       <div className={`input__field`}>
@@ -19,7 +21,7 @@ const Searchbox = ({ updateQuery, isLoading, initialQuery }: Props) => {
 
         <input
           type="text"
-          placeholder="Find rhymes"
+          placeholder={translate.searchPlaceholder}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -30,7 +32,7 @@ const Searchbox = ({ updateQuery, isLoading, initialQuery }: Props) => {
           <div className="loader"></div>
         ) : (
           <>
-            <span>Rhyme it</span>
+            <span>{translate.searchButton}</span>
 
             <div>{arrow_rightIcon}</div>
           </>

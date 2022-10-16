@@ -1,6 +1,7 @@
 //? Rhymes
 export interface GetRhymesAPIRequest {
   query: string;
+  lang: string;
 }
 
 export interface RhymeType {
@@ -51,6 +52,7 @@ export interface Dictionary {
 
 export interface GetDictionaryAPIRequest {
   query: string;
+  lang: string;
 }
 
 export interface DictionaryType {
