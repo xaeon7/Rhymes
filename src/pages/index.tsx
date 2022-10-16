@@ -52,9 +52,10 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
   }
 
   function updateSelectedWord(q: string) {
+    setSelectedWord(q);
+
     if (!q) return;
     setEnabledSelected(true);
-    setSelectedWord(q);
 
     refetchSelectedWord();
   }
@@ -152,10 +153,11 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
           </div>
         </Container>
 
-        {selectedWord.length > 0 && (
+        {enabledSelected && (
           <Dictionary
             query={selectedWord}
             updateSelectedWord={updateSelectedWord}
+            selectedWord={selectedWord}
           />
         )}
       </div>

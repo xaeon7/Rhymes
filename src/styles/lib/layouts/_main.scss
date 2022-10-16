@@ -19,8 +19,11 @@
 
 .higherContainer {
   width: 100vw;
-  display: flex;
-  align-items: flex-start;
+
+  @media screen and (min-width: 841px) {
+    display: flex;
+    align-items: flex-start;
+  }
 
   position: relative;
 }

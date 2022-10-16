@@ -10,9 +10,10 @@ import notFound from "assets/icons/notFound";
 interface Props {
   query: string;
   updateSelectedWord: (q: string) => void;
+  selectedWord: string;
 }
 
-const Dictionary = ({ query, updateSelectedWord }: Props) => {
+const Dictionary = ({ query, updateSelectedWord, selectedWord }: Props) => {
   const { isLoading, error, data } = useDictionary(query);
 
   const { playing, updateUrl } = useAudio("");
@@ -35,21 +36,28 @@ const Dictionary = ({ query, updateSelectedWord }: Props) => {
       <>
         <div
           className={
-            toggleDisplay
+            toggleDisplay && selectedWord
               ? styles.placeholderContainer
               : styles.hideContainerPlaceholder
           }
         ></div>
 
         <div
-          onClick={CloseMenu}
-          className={toggleDisplay ? styles.close : styles.hideClose}
+          className={
+            toggleDisplay && selectedWord
+              ? styles.container
+              : styles.hideContainer
+          }
         >
-          ✖
-        </div>
-        <div
-          className={toggleDisplay ? styles.container : styles.hideContainer}
-        >
+          <div
+            onClick={CloseMenu}
+            className={
+              toggleDisplay && selectedWord ? styles.close : styles.hideClose
+            }
+          >
+            ✖
+          </div>
+
           <section className={styles.dictionaryContainer}>
             Word not found in our dictionary. {notFound}
           </section>
@@ -61,18 +69,28 @@ const Dictionary = ({ query, updateSelectedWord }: Props) => {
     <>
       <div
         className={
-          toggleDisplay
+          toggleDisplay && selectedWord
             ? styles.placeholderContainer
             : styles.hideContainerPlaceholder
         }
       ></div>
+
       <div
-        onClick={CloseMenu}
-        className={toggleDisplay ? styles.close : styles.hideClose}
+        className={
+          toggleDisplay && selectedWord
+            ? styles.container
+            : styles.hideContainer
+        }
       >
-        ✖
-      </div>
-      <div className={toggleDisplay ? styles.container : styles.hideContainer}>
+        <div
+          onClick={CloseMenu}
+          className={
+            toggleDisplay && selectedWord ? styles.close : styles.hideClose
+          }
+        >
+          ✖
+        </div>
+
         {isLoading && (
           <div className={styles.loadingContainer}>
             <div className={`${styles.loader}`}></div>

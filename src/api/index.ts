@@ -16,6 +16,7 @@ export async function GetRhymesAPI({ query }: GetRhymesAPIRequest) {
 }
 
 export async function GetDictionaryAPI({ query }: GetDictionaryAPIRequest) {
+  if (!query) return;
   const response = await axios.get<GetDictionaryAPIResponse>(
     `${links.API_Dictionary_URI}${query}`
   );
