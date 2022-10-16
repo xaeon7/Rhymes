@@ -29,6 +29,17 @@
   }
 }
 
+*::-moz-selection {
+  /* Code for Firefox */
+  color: var(--clr-white);
+  background: var(--clr-accent);
+}
+
+*::selection {
+  color: var(--clr-white);
+  background: var(--clr-accent);
+}
+
 //? Reset margins
 body,
 h1,

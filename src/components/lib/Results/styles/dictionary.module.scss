@@ -210,6 +210,10 @@
     background-color: var(--clr-accent);
     border-radius: 30px;
     border: 11px solid var(--clr-white);
+
+    &:hover {
+      background-color: var(--clr-accent-dark);
+    }
   }
 
   section {
