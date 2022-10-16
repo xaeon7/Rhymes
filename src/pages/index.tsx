@@ -33,12 +33,10 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
 
   const { isLoading, error, data, refetch } = useRhymes(query, enabled);
 
-  const {
-    isLoading: wordLoading,
-    error: wordError,
-    data: wordData,
-    refetch: refetchSelectedWord,
-  } = useDictionary(selectedWord, enabledSelected);
+  const { refetch: refetchSelectedWord } = useDictionary(
+    selectedWord,
+    enabledSelected
+  );
 
   function updateQuery(q: string) {
     if (!q) return;
@@ -54,10 +52,9 @@ const Home: NextPage<any> = ({ initialQuery }: Props) => {
   }
 
   function updateSelectedWord(q: string) {
-    setSelectedWord(q);
-
     if (!q) return;
     setEnabledSelected(true);
+    setSelectedWord(q);
 
     refetchSelectedWord();
   }
