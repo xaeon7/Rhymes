@@ -11,15 +11,8 @@ export default function Document() {
         <link rel="mask-icon" href="/favicon.svg" color="#fff" />
         <link rel="shortcut icon" href="/favicon.svg" />
 
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
         <meta name="apple-mobile-web-app-title" content="Rhymes" />
-        <meta
-          name="viewport"
-          content="initial-scale=1, viewport-fit=cover, user-scalable=no"
-        />
+        <meta name="viewport" content="initial-scale=1, user-scalable=no" />
 
         <link
           rel="icon"

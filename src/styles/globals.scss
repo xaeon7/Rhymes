@@ -15,6 +15,11 @@
 
 .keyword {
   color: var(--clr-accent) !important;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration-line: underline;
+  }
 }
 
 .link {

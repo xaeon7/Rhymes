@@ -228,7 +228,11 @@ const Dictionary = ({ query, updateSelectedWord, selectedWord }: Props) => {
 
                         {data[0].meanings[meaningIndex].synonyms.map(
                           (synonym, idx) => (
-                            <p className="keyword" key={idx}>
+                            <p
+                              className="keyword"
+                              key={idx}
+                              onClick={() => updateSelectedWord(synonym)}
+                            >
                               {synonym}
                             </p>
                           )
@@ -248,7 +252,11 @@ const Dictionary = ({ query, updateSelectedWord, selectedWord }: Props) => {
 
                         {data[0].meanings[meaningIndex].antonyms.map(
                           (antonym, idx) => (
-                            <p className="keyword" key={idx}>
+                            <p
+                              className="keyword"
+                              key={idx}
+                              onClick={() => updateSelectedWord(antonym)}
+                            >
                               {antonym}
                             </p>
                           )
