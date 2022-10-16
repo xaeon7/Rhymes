@@ -11,11 +11,13 @@
 
   transition: all 0.3s ease;
 
-  &:hover {
-    scale: 1.05;
-    filter: drop-shadow(0px 0px 30px rgba(5, 155, 142, 0.05));
+  @media screen and (min-width: 841px) {
+    &:hover {
+      scale: 1.05;
+      filter: drop-shadow(0px 0px 30px rgba(5, 155, 142, 0.05));
 
-    transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
   }
 
   cursor: pointer;
@@ -59,14 +61,16 @@
 }
 
 .selectedContainer {
-  background-color: var(--clr-accent);
+  @media screen and (min-width: 841px) {
+    background-color: var(--clr-accent);
 
-  .header {
-    color: var(--clr-white);
-  }
+    .header {
+      color: var(--clr-white);
+    }
 
-  .syllable {
-    color: var(--clr-light);
+    .syllable {
+      color: var(--clr-light);
+    }
   }
 }
 
