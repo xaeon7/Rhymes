@@ -29,6 +29,7 @@ const Dictionary = ({ query, updateSelectedWord, selectedWord }: Props) => {
 
   useEffect(() => {
     setToggleDisplay(true);
+    setMeaningIndex(0);
   }, [query]);
 
   if (error)
