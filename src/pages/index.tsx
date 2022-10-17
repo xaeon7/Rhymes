@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+
+// import { setCookie } from "cookies-next";
 
 import Logo from "../components/lib/Logo/Logo";
 import Results from "../components/lib/Results/Results";
@@ -19,6 +21,7 @@ import { useDictionary } from "hooks/useDictionary";
 import Dictionary from "components/lib/Results/Dictionary";
 import { GetRhymesAPI } from "api";
 import { useLang } from "hooks/useLang";
+import { langs } from "locales";
 
 interface Props {
   initialQuery: string;
@@ -34,16 +37,19 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
   const [enabled, setEnabled] = useState<boolean>(false);
   const [enabledSelected, setEnabledSelected] = useState<boolean>(false);
 
-  const { locale } = router;
+  const locale = router.locale;
+  const translate = useLang();
 
-  const { isLoading, error, data, refetch } = useRhymes(query, enabled, locale);
+  const { isLoading, error, data, refetch } = useRhymes(
+    query,
+    enabled,
+    translate.locale
+  );
 
   const { refetch: refetchSelectedWord } = useDictionary(
     selectedWord,
     enabledSelected
   );
-
-  const translate = useLang();
 
   function updateQuery(q: string) {
     if (!q) return;
@@ -80,6 +86,7 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
   }, [query]);
 
   function changeLanguage(locale: string) {
+    // setCookie("lang", locale);
     router.push("/", "/", { locale });
   }
 
@@ -120,16 +127,30 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
         <Container>
           <Logo />
 
-          <div style={{ marginTop: "-30px", marginBottom: "30px" }}>
+          <div
+            style={{
+              marginTop: "-30px",
+              marginBottom: "30px",
+              display: "flex",
+              flexWrap: "wrap",
+              columnGap: "8px",
+              justifyContent: "center",
+            }}
+          >
             {translate.offeredIn}{" "}
-            {locale === "fr" ? (
-              <span className="keyword" onClick={() => changeLanguage("en")}>
-                English
-              </span>
-            ) : (
-              <span className="keyword" onClick={() => changeLanguage("fr")}>
-                Français
-              </span>
+            {langs.map(
+              (lang, idx) =>
+                lang.lang !== locale && (
+                  <span
+                    key={idx}
+                    className="keyword"
+                    onClick={() => {
+                      changeLanguage(lang.lang);
+                    }}
+                  >
+                    {lang.locale}
+                  </span>
+                )
             )}
           </div>
 
@@ -204,12 +225,14 @@ Home.getInitialProps = async ({ query, locale }) => {
 
     return {
       initialQuery: word,
-      description: "Rhymes is a free online tool to find rhyming words.",
+      description:
+        "Rhymes is a free online tool to find rhyming words, available in 8 languages!. No Ads!",
     };
   } catch (error) {
     return {
       initialQuery: "",
-      description: "Rhymes is a free online tool to find rhyming words.",
+      description:
+        "Rhymes is a free online tool to find rhyming words, available in 8 languages!. No Ads!",
     };
   }
 };

@@ -1,4 +1,6 @@
 const fr = {
+  locale: "fr",
+
   //? index
   searchPlaceholder: "Trouver des rimes",
   searchButton: "Rime",

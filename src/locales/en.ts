@@ -1,4 +1,6 @@
 const en = {
+  locale: "en",
+
   //? index
   searchPlaceholder: "Find rhymes",
   searchButton: "Rhyme it",

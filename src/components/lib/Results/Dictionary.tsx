@@ -67,6 +67,7 @@ const Dictionary = ({ query, updateSelectedWord, selectedWord }: Props) => {
           </div>
 
           <section className={styles.dictionaryContainer}>
+            <div></div>
             {translate.dictionaryError} {notFound}
           </section>
         </div>
