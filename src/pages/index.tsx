@@ -96,7 +96,13 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
         <title>
           {initialQuery.length ? `${initialQuery} - Rhymes` : "Rhymes"}
         </title>
-        <meta name="description" content={description} />
+        <meta
+          name="description"
+          content={
+            description ||
+            "Rhymes is a free online tool to find rhyming words, available in 8 languages!. No Ads!"
+          }
+        />
         <meta
           name="keywords"
           content="alliteration, rhythm, pace, behavior, ritual, rime, poem, point, ola, paraphrase, rite, verse, rim, wordplay, mused, assonant, rhymezone, book"
@@ -107,7 +113,13 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
           content={initialQuery.length ? `${initialQuery} - Rhymes` : "Rhymes"}
         />
         <meta property="og:image" content={image.src} />
-        <meta property="og:description" content={description} />
+        <meta
+          property="og:description"
+          content={
+            description ||
+            "Rhymes is a free online tool to find rhyming words, available in 8 languages!. No Ads!"
+          }
+        />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={"Rhymes"} />
 
@@ -116,7 +128,13 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
           name="twitter:title"
           content={initialQuery.length ? `${initialQuery} - Rhymes` : "Rhymes"}
         />
-        <meta name="twitter:description" content={description} />
+        <meta
+          name="twitter:description"
+          content={
+            description ||
+            "Rhymes is a free online tool to find rhyming words, available in 8 languages!. No Ads!"
+          }
+        />
         <meta name="twitter:image" content={image.src} />
         <meta name="twitter:site" content={"Rhymes"} />
 
