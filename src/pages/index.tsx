@@ -224,11 +224,20 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
             </div>
           )}
 
-          <div style={{ opacity: 0.5 }} className="footer">
-            {translate.poweredBy}{" "}
-            <a href="https://rhymebrain.com/">Rhyme Brain</a> &{" "}
-            <a href="https://dictionaryapi.dev/">Dictionary API</a>
-          </div>
+          <footer style={{ opacity: 0.5 }} className="footer">
+            {translate.poweredBy}
+            <a
+              href="https://dictionaryapi.dev/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Dictionary API
+            </a>
+            <a href="https://rhymebrain.com/" target="_blank" rel="noreferrer">
+              Rhyme Brain
+            </a>
+            &
+          </footer>
         </Container>
 
         {enabledSelected && (
