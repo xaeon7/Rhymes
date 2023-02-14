@@ -105,7 +105,7 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
         />
         <meta
           name="keywords"
-          content="alliteration, rhythm, pace, behavior, ritual, rime, poem, point, ola, paraphrase, rite, verse, rim, wordplay, mused, assonant, rhymezone, book"
+          content="rhyming dictionary, rhyme finder, word meanings, synonyms, antonyms, part of speech, pronunciation, vocabulary, lyrics, poetry, songwriting, creative writing, wordplay, language learning, reference, writing tool, word generator, thesaurus, word search, word list, alliteration, rhythm, pace, behavior, ritual, rime, poem, point, ola, paraphrase, rite, verse, rim, wordplay, mused, assonant, rhymezone, book"
         />
 
         <meta

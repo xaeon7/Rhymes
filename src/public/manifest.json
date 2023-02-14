@@ -1,12 +1,53 @@
 {
-  "theme_color": "#059b8e",
   "background_color": "#F7F3F7",
+  "categories": [
+    "Reference",
+    "Education",
+    "Productivity",
+    "Entertainment",
+    "Music",
+    "Language Learning",
+    "Writing",
+    "Poetry",
+    "Communication"
+  ],
+  "description": "Rhymes is a free online rhyming dictionary that allows users to search for words that rhyme with a given word. It provides a list of words that match the rhyme scheme, along with their definitions and other relevant information such as part of speech, synonyms, and antonyms. The application may also include features such as audio pronunciation. Users can use this application for creative writing, poetry, songwriting, or any other activity that requires finding rhyming words.",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
   "name": "Rhymes",
   "short_name": "Rhymes",
-  "description": "Rhymes is a free online tool to find rhyming words",
+  "screenshots": [
+    {
+      "src": "Screenshot 1-min.png",
+      "sizes": "586x1041",
+      "type": "image/png"
+    },
+    {
+      "src": "Screenshot 2-min.png",
+      "sizes": "586x1041",
+      "type": "image/png"
+    },
+    {
+      "src": "Screenshot 3-min.png",
+      "sizes": "586x1041",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Find rhymes",
+      "url": "/",
+      "icons": [
+        {
+          "src": "search-192x192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "theme_color": "#059b8e",
   "icons": [
     {
       "src": "manifest-icon-192.maskable.png",
@@ -42,5 +83,11 @@
       "sizes": "384x384",
       "type": "image/png"
     }
-  ]
+  ],
+  "android_package_name": "com.rhymes.android",
+  "prefer_related_applications": true,
+  "launch_handler": {
+    "route_to": "existing-client",
+    "navigate_existing_client": "never"
+  }
 }
