@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "app.vercel.rhymeit.twa",
+      "package_name": "com.rhymes.android",
       "sha256_cert_fingerprints": [
         "E9:E3:BC:1E:AD:3B:7D:8B:5B:4B:C6:6A:8B:7F:24:00:BE:69:00:9C:1B:F7:A1:13:6D:47:26:02:73:A6:BC:C2"
       ]
