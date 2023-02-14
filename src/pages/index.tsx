@@ -225,18 +225,18 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
           )}
 
           <footer style={{ opacity: 0.5 }} className="footer">
-            {translate.poweredBy}
+            {translate.poweredBy}{" "}
             <a
               href="https://dictionaryapi.dev/"
               target="_blank"
               rel="noreferrer"
             >
               Dictionary API
-            </a>
+            </a>{" "}
+            &{" "}
             <a href="https://rhymebrain.com/" target="_blank" rel="noreferrer">
               Rhyme Brain
             </a>
-            &
           </footer>
         </Container>
 
