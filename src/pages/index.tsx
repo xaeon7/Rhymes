@@ -96,6 +96,7 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
       if (metaThemeColor) {
         metaThemeColor.setAttribute("content", "#F7F3F7");
       }
+      document.documentElement.style.display = "";
     }
 
     document.addEventListener("DOMContentLoaded", handleDOMContentLoaded);
