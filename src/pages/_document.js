@@ -5,10 +5,10 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#fff" />
+        <meta name="theme-color" content="#059B8E" />
 
         <link rel="manifest" href="/manifest.json" />
-        <link rel="mask-icon" href="/favicon.svg" color="#fff" />
+        <link rel="mask-icon" href="/favicon.svg" color="#059B8E" />
         <link rel="shortcut icon" href="/favicon.svg" />
 
         <meta name="apple-mobile-web-app-title" content="Rhymes" />

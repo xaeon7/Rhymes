@@ -90,6 +90,21 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
     router.push("/", "/", { locale });
   }
 
+  useEffect(() => {
+    function handleDOMContentLoaded() {
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute("content", "#F7F3F7");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", handleDOMContentLoaded);
+
+    return () => {
+      document.removeEventListener("DOMContentLoaded", handleDOMContentLoaded);
+    };
+  }, []);
+
   return (
     <div>
       <Head>
@@ -100,7 +115,7 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
           name="description"
           content={
             description ||
-            "Rhymes is a free online tool to find rhyming words, available in 8 languages!. No Ads!"
+            "Rhymes is a free online rhyming dictionary that allows users to search for words that rhyme with a given word. It provides a list of words that match the rhyme scheme, along with their definitions and other relevant information such as part of speech, synonyms, and antonyms. The application may also include features such as audio pronunciation. Users can use this application for creative writing, poetry, songwriting, or any other activity that requires finding rhyming words."
           }
         />
         <meta
@@ -117,7 +132,7 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
           property="og:description"
           content={
             description ||
-            "Rhymes is a free online tool to find rhyming words, available in 8 languages!. No Ads!"
+            "Rhymes is a free online rhyming dictionary that allows users to search for words that rhyme with a given word. It provides a list of words that match the rhyme scheme, along with their definitions and other relevant information such as part of speech, synonyms, and antonyms. The application may also include features such as audio pronunciation. Users can use this application for creative writing, poetry, songwriting, or any other activity that requires finding rhyming words."
           }
         />
         <meta property="og:type" content="website" />
@@ -132,13 +147,16 @@ const Home: NextPage<any> = ({ initialQuery, description }: Props) => {
           name="twitter:description"
           content={
             description ||
-            "Rhymes is a free online tool to find rhyming words, available in 8 languages!. No Ads!"
+            "Rhymes is a free online rhyming dictionary that allows users to search for words that rhyme with a given word. It provides a list of words that match the rhyme scheme, along with their definitions and other relevant information such as part of speech, synonyms, and antonyms. The application may also include features such as audio pronunciation. Users can use this application for creative writing, poetry, songwriting, or any other activity that requires finding rhyming words."
           }
         />
         <meta name="twitter:image" content={image.src} />
         <meta name="twitter:site" content={"Rhymes"} />
 
         <link rel="icon" href="/favicon.svg" />
+
+        <meta name="theme-color" content="#F7F3F7" />
+        <meta name="theme-color" content="#F7F3F7" />
       </Head>
 
       <div className="higherContainer">
