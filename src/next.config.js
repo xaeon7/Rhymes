@@ -4,7 +4,7 @@ const withPWA = require("next-pwa")({
   dest: "public",
   fallbacks: {
     // image: "/static/images/fallback.png",
-    document: "/offline.html", // if you want to fallback to a custom    page other than /_offline
+    document: "/static/offline.html", // if you want to fallback to a custom    page other than /_offline
     // font: '/static/font/fallback.woff2',
     // audio: ...,
     // video: ...,
