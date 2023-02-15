@@ -1,7 +1,10 @@
-import React from "react";
+import Head from "next/head";
 
-export default function Offline() {
-  return (
+const Fallback = () => (
+  <>
+    <Head>
+      <title>Rhymes</title>
+    </Head>
     <div className="offline-container">
       <h1 className="logo">Rhymes</h1>
       <p className="description">
@@ -159,5 +162,7 @@ export default function Offline() {
         </g>
       </svg>
     </div>
-  );
-}
+  </>
+);
+
+export default Fallback;

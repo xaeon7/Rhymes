@@ -20,8 +20,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/_docuement.js",
-    "locales/en.js"
+    "pages/_document.js",
+    "pages/_offline.js",
+    "locales/en.js",
+    "pages/_offline.js"
   ],
   "exclude": ["node_modules"]
 }
