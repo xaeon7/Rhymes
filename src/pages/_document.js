@@ -12,7 +12,6 @@ export default function Document() {
         <link rel="shortcut icon" href="/favicon.svg" />
 
         <meta name="apple-mobile-web-app-title" content="Rhymes" />
-        <meta name="viewport" content="initial-scale=1, user-scalable=no" />
 
         <link
           rel="icon"

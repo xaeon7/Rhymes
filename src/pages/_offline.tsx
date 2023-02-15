@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Offline() {
   return (
-    <>
+    <div className="offline-container">
       <h1 className="logo">Rhymes</h1>
       <p className="description">
         No internet connection available, <br />
@@ -158,6 +158,6 @@ export default function Offline() {
           />
         </g>
       </svg>
-    </>
+    </div>
   );
 }
