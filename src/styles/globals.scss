@@ -57,6 +57,25 @@
   }
 }
 
+.offline-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.description {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-size: 1.3rem;
+
+  white-space: nowrap;
+
+  color: #322f32;
+
+  text-align: center;
+}
+
 .illustration {
   display: flex;
   align-items: center;
