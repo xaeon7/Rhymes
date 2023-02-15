@@ -1,16 +1,6 @@
 {
   "background_color": "#F7F3F7",
-  "categories": [
-    "Reference",
-    "Education",
-    "Productivity",
-    "Entertainment",
-    "Music",
-    "Language Learning",
-    "Writing",
-    "Poetry",
-    "Communication"
-  ],
+  "categories": ["books", "education", "music", "utilities"],
   "description": "Rhymes is a free online rhyming dictionary that allows users to search for words that rhyme with a given word. It provides a list of words that match the rhyme scheme, along with their definitions and other relevant information such as part of speech, synonyms, and antonyms. The application may also include features such as audio pronunciation. Users can use this application for creative writing, poetry, songwriting, or any other activity that requires finding rhyming words.",
   "display": "standalone",
   "scope": "/",
@@ -94,5 +84,9 @@
   "launch_handler": {
     "route_to": "existing-client",
     "navigate_existing_client": "never"
-  }
+  },
+  "display_override": ["standalone"],
+  "orientation": "natural",
+  "lang": "en",
+  "dir": "auto"
 }
